@@ -1,8 +1,8 @@
 # Campus Connect - Mobile App (PE/2022/051)
 
-**Name:** Savitha Oneth 
-**Student ID:** PE/2022/051 
-**Course:** COST 32152 / COSC 32152 / BECS 3227 Mobile Application Development  
+**Name:** Savitha Oneth  
+**Student ID:** PE/2022/051  
+**Course:** COST 32152 / COSC 32152 / BECS 3227 Mobile Application Development   
 **Assignment:** 01
 
 ---
