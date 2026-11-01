@@ -64,7 +64,7 @@ The `AppState` API is implemented in `app/_layout.tsx`. It listens for changes i
 
 ## 8. Local Setup Instructions
 To run this project locally:
-1. Clone the repository: `git clone [Your Repo Link]`
+1. Clone the repository: `gh repo clone sawitha-oneth/CampusConnect`
 2. Navigate to the folder: `cd CampusConnect`
 3. Install dependencies: `npm install`
 4. Start the development server: `npx expo start -c`
