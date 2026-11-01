@@ -1,56 +1,80 @@
-# Welcome to your Expo app 👋
+# Campus Connect - Mobile App (PE/2022/051)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**Name:** Savitha Oneth 
+**Student ID:** PE/2022/051 
+**Course:** COST 32152 / COSC 32152 / BECS 3227 Mobile Application Development  
+**Assignment:** 01
 
-## Get started
+---
 
-1. Install dependencies
+## 1. Application Overview & Purpose
+**Campus Connect** is a mobile application designed for university students to easily discover, filter, and bookmark university events such as tech talks, sports meets, and cultural nights. The app solves the problem of students missing out on important campus events by providing a centralized, easy-to-use platform with real-time notifications and offline bookmarking capabilities.
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+## 2. Screen Breakdown
+The application consists of the following main screens:
+1. **Events Screen (Home):** Displays a scrollable FlatList of all available hard-coded events. Includes a Filter Modal to filter events by category.
+2. **Event Details Screen:** Shows a detailed view of the selected event, including the description, time, location, and a bookmark button.
+3. **Favorites Screen:** Displays only the events that the user has bookmarked/saved. Shows an empty state if no events are saved.
+4. **Profile Screen:** A beautifully designed UI showing the student's details and the number of saved events.
 
-   ```bash
-   npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
+## 3. Core React Native Components Used
+- **`View` & `Text`:** Used extensively across all screens for layout and typography.
+- **`FlatList`:** Implemented in the `Events` and `Favorites` screens to render the hard-coded data efficiently.
+- **`Image`:** Used in the `EventCard` and Details screen to show event banners.
+- **`Pressable` & `TouchableOpacity`:** Used for interactive elements (filter buttons, bookmarks) to provide HCI feedback (opacity changes).
+- **`Modal`:** Implemented in the Events screen for the Category Filter feature.
+- **`AppState`:** Utilized in the Root Layout to detect when the app comes to the foreground.
+- **`Alert`:** Used to confirm actions like "Event added to favorites".
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **src/app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 4. Expo Router Structure
+The project uses Expo Router's file-based routing:
+- `app/_layout.tsx`: The root Stack layout. Wraps the app with `AppProvider` and handles `AppState` listeners.
+- `app/(tabs)/_layout.tsx`: The Bottom Tab navigator (Events, Favorites, Profile).
+- `app/(tabs)/index.tsx`: The main Events list screen.
+- `app/(tabs)/favorites.tsx`: The Favorites list screen.
+- `app/(tabs)/profile.tsx`: The Profile screen.
+- `app/event/[id].tsx`: A dynamic nested Stack route for Event Details.
 
-## Get a fresh project
+---
 
-When you're ready, run:
+## 5. State Management Approach
+Global state is managed using the **React Context API** (`AppContext.js`). 
+- `favorites`: An array of event IDs that the user has bookmarked. This state is shared across the Events, Favorites, and Details screens.
+- `user`: Holds the hard-coded student profile data.
+- **Sharing:** When a user taps the heart icon on the Events screen, it updates the context, which instantly reflects on the Favorites tab badge and screen.
 
-```bash
-npm run reset-project
-```
+---
 
-This command will move the starter code to the **example** directory and create a blank **src/app** directory where you can start developing.
+## 6. Research & Implementation of Local Notifications
+**Research:** I researched the Expo documentation for `expo-notifications`. I learned that to send immediate notifications, we must set a notification handler and request user permissions upon app startup.
+**Implementation:** When a user bookmarks an event, the `toggleFavorite` function in the Context API triggers `Notifications.scheduleNotificationAsync` with a `trigger: null` (immediate). This successfully displays a local notification saying "Event Bookmarked!".
 
-### Other setup steps
+---
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+## 7. AppState Behavior
+The `AppState` API is implemented in `app/_layout.tsx`. It listens for changes in the app's state. When the app transitions from `background` or `inactive` back to `active`, an Alert pops up saying "Welcome Back!". This demonstrates the app's ability to detect foreground transitions.
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
+## 8. Local Setup Instructions
+To run this project locally:
+1. Clone the repository: `git clone [Your Repo Link]`
+2. Navigate to the folder: `cd CampusConnect`
+3. Install dependencies: `npm install`
+4. Start the development server: `npx expo start -c`
+5. Scan the QR code with Expo Go.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+## 9. Demonstration Video Link [Watch the Demo Video Here]
+https://drive.google.com/file/d/15cDdMAd9K4Z7Qg1jQAoOgTtGWGG2VRqg/view?usp=sharing
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+## 10. The APK File is the Campus Connect
+https://expo.dev/accounts/dilvan/projects/CampusConnect/builds/a9fb227c-f72d-4177-9c0f-4d0416138225

@@ -1,0 +1,42 @@
+export const eventsData = [
+  {
+    id: '1',
+    title: 'Tech Talk: AI in 2026',
+    category: 'Technology',
+    date: 'Nov 15, 2026',
+    time: '10:00 AM',
+    location: 'Main Auditorium',
+    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800',
+    description: 'Join us for an insightful session on the future of Artificial Intelligence and its impact on our daily lives. Guest speaker from Google.',
+  },
+  {
+    id: '2',
+    title: 'Annual Sports Meet',
+    category: 'Sports',
+    date: 'Nov 20, 2026',
+    time: '08:00 AM',
+    location: 'University Grounds',
+    image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800',
+    description: 'The most anticipated sporting event of the year! Come and cheer for your faculty teams as they compete for the championship.',
+  },
+  {
+    id: '3',
+    title: 'Cultural Night 2026',
+    category: 'Culture',
+    date: 'Nov 25, 2026',
+    time: '06:00 PM',
+    location: 'Student Center',
+    image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800',
+    description: 'Experience a night filled with music, dance, and drama performed by our talented students.',
+  },
+  {
+    id: '4',
+    title: 'Career Fair & Networking',
+    category: 'Career',
+    date: 'Dec 02, 2026',
+    time: '09:00 AM',
+    location: 'Faculty of Science',
+    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800',
+    description: 'Meet top tech companies and explore internship and job opportunities. Bring your resume!',
+  }
+];
